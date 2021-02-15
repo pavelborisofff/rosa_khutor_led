@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            add_text = checkSource(s);
+            document.getElementById('clock').innerHTML =
+            h + ":" + m + ":" + s + add_text;
+            var t = setTimeout(startTime, 500);
+        }
+
+        function checkSource(i) {
+            if (i < 30) {
+                txt = 'before'
+            } else {
+                txt = 'after'
+            };
+            return txt
+        }
+        
+        function checkTime(i) {
+            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+            return i;
+        }
+    </script>
+</head>
+<body onload="startTime()">
+    <div id="clock" class="clock"></div>
+</body>
+</html>
