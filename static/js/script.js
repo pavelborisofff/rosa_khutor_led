@@ -14,12 +14,12 @@ function startTime() {
     document.getElementById('clock').innerHTML = h + ":" + m;
 
     // switch weather-avalanche
-    const weather = document.getElementsByClassName('weather')[0];
-    if (s < 30) {
-        weather.classList.add('visually-hidden');
-    } else {
-        weather.classList.remove('visually-hidden');
-    }
+    // const weather = document.getElementsByClassName('weather')[0];
+    // if (s < 30) {
+    //     weather.classList.add('visually-hidden');
+    // } else {
+    //     weather.classList.remove('visually-hidden');
+    // }
     
     var t = setTimeout(startTime, 1000);
 }
