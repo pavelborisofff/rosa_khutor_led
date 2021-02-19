@@ -4,12 +4,14 @@ function startTime() {
     var today = new Date();
     var h = today.getHours();
     var m = today.getMinutes();
-    var s = today.getSeconds();
+    // var s = today.getSeconds();
+    h = checkTime(h);
     m = checkTime(m);
-    s = checkTime(s);
-    const addText = checkSource(s);
+    // s = checkTime(s);
+    // const addText = checkSource(s);
     document.getElementById('clock').innerHTML =
-    h + ":" + m + ":" + s + addText;
+    // h + ":" + m + ":" + s + addText;
+    h + ":" + m;
     var t = setTimeout(startTime, 500);
 }
 

@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/css/normalize.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link rel="stylesheet" href="./static/css/fonts.css">
     <link rel="stylesheet" href="./static/css/style.css">
     <title>Document</title>
 </head>
 
 <body onload="startTime()">
     <div class="container main">
-        <div class="main__video">
-            Video
-        </div>
+        <div class="main__video">Video</div>
         <div class="main__areas areas">
             <ul class="areas__items">
-                <li class="areas__item temp wind">1</li>
-                <li class="areas__item temp wind">2</li>
-                <li class="areas__item snow_depth snow_cond">3</li>
-                <li class="areas__item snow_depth">4</li>
-                <li class="areas__item snow_depth">5</li>
+                <li class="areas__item temp wind">-6°C</li>
+                <li class="areas__item temp wind">-2°C</li>
+                <li class="areas__item snow_depth snow_cond">34 см</li>
+                <li class="areas__item snow_depth">999 см</li>
+                <li class="areas__item snow_depth">91 см</li>
             </ul>
         </div>
         <div class="main__weather weather">
+            <img src="./static/img/СОЛНЦЕ.png" alt="" class="weather__img">
             <div class="weather__heading">Завтра после обеда</div>
             <div class="weather__temp">-9˚C</div>
         </div>
-        <div id="clock" class="clock"></div>
+        <div id="clock" class="clock">00:00</div>
     </div>
     <script src="./static/js/script.js"></script>
 </body>
+
 </html>
