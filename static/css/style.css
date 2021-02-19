@@ -1,0 +1,33 @@
+.main {
+    font-size: 0;
+    position: relative;
+}
+
+.main>div {
+    display: inline-block;
+    
+}
+
+.main__video {
+    width: 288px;
+    height: 192px;
+    position: absolute;
+    top: 0;
+    font-size: 16px;
+    text-align: center;
+    background-color: pink;
+}
+/* 
+div>* {
+    background-color: bisque;
+} */
+
+.clock {
+    background-color: red;
+    display: inline-block;
+    padding: 20px;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+    color: aqua;
+}

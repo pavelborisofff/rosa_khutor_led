@@ -3,38 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./static/css/normalize.css">
+    <link rel="stylesheet" href="./static/css/style.css">
     <title>Document</title>
-    <script>
-        function startTime() {
-            var today = new Date();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            add_text = checkSource(s);
-            document.getElementById('clock').innerHTML =
-            h + ":" + m + ":" + s + add_text;
-            var t = setTimeout(startTime, 500);
-        }
-
-        function checkSource(i) {
-            if (i < 30) {
-                txt = ' before'
-            } else {
-                txt = ' after'
-            };
-            return txt
-        }
-        
-        function checkTime(i) {
-            if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
-            return i;
-        }
-    </script>
 </head>
+
 <body onload="startTime()">
-    <div id="clock" class="clock"></div>
+    <div class="container main">
+        <div class="main__video">
+            Video
+        </div>
+        <div class="main__areas areas">
+            <ul class="areas__items">
+                <li class="areas__item temp wind">1</li>
+                <li class="areas__item temp wind">2</li>
+                <li class="areas__item snow_depth snow_cond">3</li>
+                <li class="areas__item snow_depth">4</li>
+                <li class="areas__item snow_depth">5</li>
+            </ul>
+        </div>
+        <div class="main__weather weather">
+            <div class="weather__heading">Завтра после обеда</div>
+            <div class="weather__temp">-9˚C</div>
+        </div>
+        <div id="clock" class="clock"></div>
+    </div>
+    <script src="./static/js/script.js"></script>
 </body>
 </html>
