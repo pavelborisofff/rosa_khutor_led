@@ -13,7 +13,9 @@
 
 <body onload="startTime()">
     <div class="container main">
+        <!-- VIDEO PLACEHOLDER -->
         <div class="main__video">Video</div>
+        <!-- WIND AND TEMPERATURE  -->
         <div class="main__areas areas">
             <ul class="areas__items">
                 <li class="areas__item temp wind">-6°C</li>
@@ -23,11 +25,26 @@
                 <li class="areas__item snow_depth">91 см</li>
             </ul>
         </div>
-        <div class="main__weather weather">
-            <img src="./static/img/СОЛНЦЕ.png" alt="" class="weather__img">
-            <div class="weather__heading">Завтра после обеда</div>
-            <div class="weather__temp">-9˚C</div>
-        </div>
+        <!-- WEATHER AND AVALANCE -->
+        <ul>
+            <!-- WEATHER -->
+            <!-- TODAY -->
+            <li class="main__weather weather">
+                <img src="./static/img/СОЛНЦЕ.png" alt="" class="weather__img">
+                <div class="weather__heading">Завтра после обеда</div>
+                <div class="weather__temp">-9˚C</div>
+            </li>
+            <!-- AVALANCE -->
+            <li class="main__avalanche avalanche">
+                <div class="avalanche__heading">Лавиноопасность</div>
+                <div class="avalanche__level level">
+                    <p class="level__rus">Значительная</p>
+                    <p class="level__num">3/5</p>
+                    <p class="level__eng">Considerable</p>
+                </div>
+            </li>
+        </ul>
+        <!-- CLOCK -->
         <div id="clock" class="clock">00:00</div>
     </div>
     <script src="./static/js/script.js"></script>
