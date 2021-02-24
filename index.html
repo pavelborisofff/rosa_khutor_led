@@ -35,13 +35,13 @@
             <li class="main__weather weather item hide">
                 <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
                 <div class="weather__heading">Сегодня после обеда</div>
-                <div class="weather__temp">12˚C</div>
+                <div class="weather__temp">15˚C</div>
             </li>
             <!-- TODAY PM EN -->
             <li class="main__weather weather item hide">
                 <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
                 <div class="weather__heading">Today afternoon</div>
-                <div class="weather__temp">12˚C</div>
+                <div class="weather__temp">15˚C</div>
             </li>
             <!-- TOMORROW AM RU -->
             <li class="main__weather weather item hide">
@@ -110,9 +110,18 @@
             areasItems = areasParent.querySelectorAll('.item'),
             today = new Date();
         
-        // const reloadPage = setInterval(function() {
-        //     location.reload();
-        // }, 5 * 60 * 1000);
+        function httpGet(url) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", url, false); // false for synchronous request
+            xmlHttp.send(null);
+            return xmlHttp.responseText;
+        }
+
+        const reloadPage = setInterval(function() {
+            const serverTest = httpGet('http://127.0.0.1:5500/');
+            console.log('wait')
+            httpGet('http://127.0.0.1:5500/') ? location.reload() : console.log('none');
+        }, 5000);
 
         function startAreas() {
             for (let idx = 0; idx < areasItems.length; idx++) {
