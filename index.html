@@ -118,10 +118,9 @@
         }
 
         const reloadPage = setInterval(function() {
-            const serverTest = httpGet('http://127.0.0.1:5500/');
             console.log('wait')
-            httpGet('http://127.0.0.1:5500/') ? location.reload() : console.log('none');
-        }, 5000);
+            httpGet(document.URL) ? location.reload() : console.log('none');
+        }, 10 * 60 * 1000);
 
         function startAreas() {
             for (let idx = 0; idx < areasItems.length; idx++) {
