@@ -113,8 +113,6 @@
         const reloadPage = setInterval(function() {
             location.reload();
         }, 5 * 60 * 1000);
-        
-        let iWeather = 0;
 
         function startAreas() {
             for (let idx = 0; idx < areasItems.length; idx++) {
@@ -125,6 +123,8 @@
         }
 
         startAreas();
+
+        let iWeather = 0;
         
         function checkWeatherHour() {
             return (today.getHours < 12) ? weatherItems.length - 3 : weatherItems.length - 1;
