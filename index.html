@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./static/css/normalize.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <!-- <link rel="preconnect" href="https://fonts.gstatic.com">  -->
     <link rel="stylesheet" href="./static/css/fonts.css">
     <link rel="stylesheet" href="./static/css/style.css">
     <title>Document</title>
@@ -26,28 +26,135 @@
             </ul>
         </div>
         <!-- WEATHER AND AVALANCE -->
-        <ul>
+        <ul class="main__forecast">
             <!-- WEATHER -->
-            <!-- TODAY -->
-            <li class="main__weather weather">
-                <img src="./static/img/СОЛНЦЕ.png" alt="" class="weather__img">
-                <div class="weather__heading">Завтра после обеда</div>
-                <div class="weather__temp">-9˚C</div>
+            <!-- TODAY PM RU -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Сегодня после обеда</div>
+                <div class="weather__temp">12˚C</div>
             </li>
-            <!-- AVALANCE -->
-            <li class="main__avalanche avalanche">
+            <!-- TODAY PM EN -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Today afternoon</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- TOMORROW AM RU -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Завтра с утра</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- TOMORROW AM EN -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Tomorrow morning</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- TOMORROW PM RU -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Завтра после обеда</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- TOMORROW PM EN -->
+            <li class="main__weather weather item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Tomorrow afternoon</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- AVALANCHE -->
+            <!-- AVALANCHE RU-->
+            <li class="main__avalanche avalanche item hide">
                 <div class="avalanche__heading">Лавиноопасность</div>
-                <div class="avalanche__level level">
-                    <p class="level__rus">Значительная</p>
-                    <p class="level__num">3/5</p>
-                    <p class="level__eng">Considerable</p>
+                <div class="avalanche__level level avalanche__level_2">
+                    <p class="level__rus">Умеренная</p>
+                    <p class="level__num">2/5</p>
+                    <p class="level__eng">Moderate</p>
                 </div>
+            </li>
+            <!-- AVALANCHE EN-->
+            <li class="main__avalanche avalanche item hide">
+                <div class="avalanche__heading">Avalanche danger</div>
+                <div class="avalanche__level level avalanche__level_2">
+                    <p class="level__rus">Умеренная</p>
+                    <p class="level__num">2/5</p>
+                    <p class="level__eng">Moderate</p>
+                </div>
+            </li>
+            <!-- TODAY AM RU -->
+            <li class="main__weather weather morning item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Сегодня с утра</div>
+                <div class="weather__temp">12˚C</div>
+            </li>
+            <!-- TODAY AM EN -->
+            <li class="main__weather weather morning item hide">
+                <img src="./static/img/СОЛНЕЧНО.png" alt="" class="weather__img">
+                <div class="weather__heading">Today morning</div>
+                <div class="weather__temp">12˚C</div>
             </li>
         </ul>
         <!-- CLOCK -->
         <div id="clock" class="clock">00:00</div>
     </div>
-    <script src="./static/js/script.js"></script>
+    <!-- <script src="./static/js/script.js"></script> -->
+    <script>
+        const areasParent = document.querySelector('.areas__items'),
+            weatherParent = document.querySelector('.main__forecast'),
+            weatherItems = weatherParent.querySelectorAll('.item'),
+            today = new Date();
+        
+        const reloadPage = setInterval(function() {
+            location.reload();
+        }, 5 * 60 * 1000);
+        
+        let iWeather = 0;
+        
+        function checkWeatherHour() {
+            return (today.getHours < 12) ? weatherItems.length - 3 : weatherItems.length - 1;
+        }
+        
+        function startWeather() {
+            iWeather = (iWeather < checkWeatherHour()) ? ++iWeather : 0;
+        
+            for (let idx = 0; idx < weatherItems.length; idx++) {
+                if (iWeather == idx) {
+                    weatherItems[idx].classList.remove('hide');
+                } else {
+                    weatherItems[idx].classList.add('hide');
+                }
+            };
+        
+            const weatherTimer = setTimeout(startWeather, 4000);
+        }
+        
+        startWeather();
+        
+        // add zero in front of numbers < 10
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        
+        function startTime() {
+            let today = new Date();
+            let h = today.getHours();
+            let m = today.getMinutes();
+            h = checkTime(h);
+            m = checkTime(m);
+        
+            // change clock's time
+            document.getElementById('clock').innerHTML = h + ":" + m;
+        
+            const timeTimer = setTimeout(startTime, 1000);
+        }
+        
+        startTime();
+    </script>
 </body>
 
 </html>

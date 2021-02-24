@@ -113,7 +113,7 @@ label {
     outline: 0;
 }
 
-.visually-hidden {
+.hide {
     position: absolute;
     width: 1px;
     height: 1px;
@@ -242,6 +242,32 @@ body {
 
 .avalanche__level .level__eng {
     line-height: 13px;
+}
+
+.avalanche__level_0 {
+    background-color: #063B79;
+    color: white;
+}
+
+.avalanche__level_1 {
+    background-color: #29A63F;
+}
+
+.avalanche__level_2 {
+    background-color: #FEF336;
+}
+
+.avalanche__level_3 {
+    background-color: #E9892B;
+}
+
+.avalanche__level_4 {
+    background-color: #D82826;
+}
+
+.avalanche__level_5 {
+    background-color: black;
+    color: white;
 }
 
 .clock {
