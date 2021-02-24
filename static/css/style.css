@@ -179,6 +179,14 @@ body {
     line-height: 150%;
 }
 
+.wind {
+    color: lightskyblue;
+}
+
+.snow_cond {
+    color: lightgreen;
+}
+
 .weather,
 .avalanche {
     width: 96px;

@@ -18,9 +18,12 @@
         <!-- WIND AND TEMPERATURE  -->
         <div class="main__areas areas">
             <ul class="areas__items">
-                <li class="areas__item temp wind">-6°C</li>
-                <li class="areas__item temp wind">-2°C</li>
-                <li class="areas__item snow_depth snow_cond">34 см</li>
+                <li class="areas__item temp item hide">-6°C</li>
+                <li class="areas__item temp item hide">-6°C</li>
+                <li class="areas__item wind item">14 м/с</li>
+                <li class="areas__item wind item">12 м/с</li>
+                <li class="areas__item snow_depth item hide">34 см</li>
+                <li class="areas__item snow_cond item">34 см</li>
                 <li class="areas__item snow_depth">999 см</li>
                 <li class="areas__item snow_depth">91 см</li>
             </ul>
@@ -104,6 +107,7 @@
         const areasParent = document.querySelector('.areas__items'),
             weatherParent = document.querySelector('.main__forecast'),
             weatherItems = weatherParent.querySelectorAll('.item'),
+            areasItems = areasParent.querySelectorAll('.item'),
             today = new Date();
         
         const reloadPage = setInterval(function() {
@@ -111,6 +115,16 @@
         }, 5 * 60 * 1000);
         
         let iWeather = 0;
+
+        function startAreas() {
+            for (let idx = 0; idx < areasItems.length; idx++) {
+                areasItems[idx].classList.toggle('hide');
+            }
+
+            const areasTimer = setTimeout(startAreas, 5000);
+        }
+
+        startAreas();
         
         function checkWeatherHour() {
             return (today.getHours < 12) ? weatherItems.length - 3 : weatherItems.length - 1;
